@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/home', [\App\Http\Controllers\Controller::class, 'index'])->name('home.index');
+Route::get('/aa/a1',function (){
+    return view('aa.a1');
+});
+Route::get('/aa/a2',function (){
+    return view('aa.a2');
+});
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
